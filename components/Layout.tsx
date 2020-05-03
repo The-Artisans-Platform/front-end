@@ -24,25 +24,22 @@ const Layout: React.FunctionComponent<Props> = ({
       <NavBar bg={theme.colors.blackAlpha8} drape>
         <Flex stretch jcCenter h={navHeight}>
           {navItems.map((item) => (
-            <>
-              <Flex aiCenter p="0 1rem" pointer key={item}>
-                <Link
-                  href={`/${item === "Home" ? "" : item.toLowerCase()}`}
-                  passHref
+            <Flex aiCenter p="0 1rem" pointer key={item} m="1rem">
+              <Link
+                href={`/${item === "Home" ? "" : item.toLowerCase()}`}
+                passHref
+              >
+                <Ref
+                  lf
+                  bold
+                  pointer
+                  color={theme.colors.gray0}
+                  hvrColor={theme.colors.whiteAlpha6}
                 >
-                  <Ref
-                    lf
-                    bold
-                    pointer
-                    color={theme.colors.gray0}
-                    hvrColor={theme.colors.whiteAlpha6}
-                  >
-                    {item}
-                  </Ref>
-                </Link>
-              </Flex>
-              <Box w="2rem" key={item} />
-            </>
+                  {item}
+                </Ref>
+              </Link>
+            </Flex>
           ))}
           {/* <Flex aiCenter p="0 1rem" pointer>
             <Link href="/" passHref>
