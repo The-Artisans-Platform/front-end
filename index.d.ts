@@ -1,1 +1,1 @@
-declare module "bushido-strap";
+declare module "sriracha-ui";

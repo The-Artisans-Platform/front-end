@@ -5,27 +5,48 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "style": "yarn add bushido-strap && next",
+    "style": "yarn add sriracha-ui && next",
+    "test": "jest --watch",
+    "test:ci": "jest --ci",
+    "coverage": "CI=true yarn test --coverage --watchAll=false || true",
     "type-check": "tsc"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/__tests__/**"
+    ]
+  },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@google-cloud/storage": "^5.0.1",
     "@types/cookie": "^0.3.3",
     "apollo-boost": "^0.4.7",
     "apollo-link-context": "^1.0.20",
     "apollo-link-http": "^1.5.17",
-    "bushido-strap": "^3.0.7",
     "cookie": "^0.4.1",
     "graphql": "^15.0.0",
     "isomorphic-unfetch": "3.0.0",
+    "moment": "^2.26.0",
     "next": "latest",
     "react": "^16.12.0",
     "react-apollo": "^3.1.5",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-hook-form": "^5.7.2",
+    "sriracha-ui": "^0.7.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.7.0",
+    "@testing-library/react": "^10.0.4",
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "babel-jest": "^26.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.0.1",
+    "react-test-renderer": "^16.13.1",
     "typescript": "3.7.3"
   },
   "license": "ISC"
