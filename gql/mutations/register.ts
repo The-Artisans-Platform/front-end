@@ -1,6 +1,6 @@
 import { gql } from "apollo-boost";
 
-const REGISTER_MUTATION = gql`
+export const registerMutation = gql`
   mutation Register($data: RegisterInput!) {
     register(data: $data) {
       id
@@ -9,5 +9,3 @@ const REGISTER_MUTATION = gql`
     }
   }
 `;
-
-export default REGISTER_MUTATION;

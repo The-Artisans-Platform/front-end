@@ -1,13 +1,13 @@
 import React from "react";
 import { Flex, Button, Text, useModal, Modal } from "sriracha-ui";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import CurrentUser from "./CurrentUser";
-import { IS_LOGGED_IN_QUERY } from "../../gql";
-import Login from "../Auth/Login";
-import Register from "../Auth/Register";
+import { isLoggedInQuery } from "gql";
+import Login from "components/Auth/Login";
+import Register from "components/Auth/Register";
 
 export default function Gate() {
-  const { data: isLoggedInData, loading } = useQuery(IS_LOGGED_IN_QUERY);
+  const { data: isLoggedInData, loading } = useQuery(isLoggedInQuery);
 
   const { isModal: isLoginModal, toggleModal: toggleLoginModal } = useModal();
   const {
@@ -19,15 +19,15 @@ export default function Gate() {
   console.log("status", status);
 
   return (
-    <Flex aiCenter>
+    <Flex aic>
       {loading ? (
         <Text>Loading...</Text>
       ) : !status ? (
         <>
-          <Button primary onClick={toggleLoginModal}>
+          <Button green onClick={toggleLoginModal}>
             Log in
           </Button>
-          <Button secondary onClick={toggleRegisterModal}>
+          <Button blue onClick={toggleRegisterModal}>
             Sign up
           </Button>
         </>
@@ -35,10 +35,10 @@ export default function Gate() {
         <CurrentUser />
       )}
       <Modal active={isLoginModal} toggle={toggleLoginModal}>
-        <Login toggle={() => toggleLoginModal()} />
+        <Login toggle={toggleLoginModal} />
       </Modal>
       <Modal active={isRegisterModal} toggle={toggleRegisterModal}>
-        <Register toggle={() => toggleRegisterModal()} />
+        <Register toggle={toggleRegisterModal} />
       </Modal>
     </Flex>
   );

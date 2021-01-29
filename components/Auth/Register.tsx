@@ -1,12 +1,12 @@
 import React from "react";
 import { Flex, Input, Button, Text } from "sriracha-ui";
 import { useForm } from "react-hook-form";
-import { useMutation } from "@apollo/react-hooks";
-import { IS_LOGGED_IN_QUERY, REGISTER_MUTATION, ME_QUERY } from "../../gql";
+import { useMutation } from "@apollo/client";
+import { isLoggedInQuery, registerMutation, meQuery } from "gql";
 
 export default function Register({ toggle }: any) {
   const { register: formRegister, handleSubmit } = useForm();
-  const [register, { loading }] = useMutation(REGISTER_MUTATION);
+  const [register, { loading }] = useMutation(registerMutation);
   const onSubmit = async (data: Record<string, any>) => {
     console.log("data:", data);
     const { firstName, lastName, email, password } = data;
@@ -20,16 +20,16 @@ export default function Register({ toggle }: any) {
           password,
         },
       },
-      refetchQueries: [{ query: IS_LOGGED_IN_QUERY }, { query: ME_QUERY }],
+      refetchQueries: [{ query: isLoggedInQuery }, { query: meQuery }],
     });
     toggle();
   };
   const selectImageHandler = (e: any) => {
     console.log("event target file:", e.target.files[0]);
   };
-  const uploadImageHandler = (e: any) => {
-    return;
-  };
+  // const uploadImageHandler = (e: any) => {
+  //   return;
+  // };
   if (loading) return <Text>Loading...</Text>;
   return (
     <Flex as="form" drape onSubmit={handleSubmit(onSubmit)}>

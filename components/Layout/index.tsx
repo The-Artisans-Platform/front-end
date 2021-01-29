@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
-import { Wrapper, NavBar, Box, Text, Flex, theme } from "sriracha-ui";
+import { Wrapper, NavBar, Box, Text, Flex } from "sriracha-ui";
 import Gate from "./Gate";
 
 type Props = {
@@ -21,21 +21,15 @@ const Layout: React.FunctionComponent<Props> = ({
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <NavBar bg={theme.colors.whiteAlpha9} jcBetween shadow={theme.shadows[3]}>
+    <NavBar bg="whiteAlpha9" jcb shadow="shadows3">
       <Flex h={navHeight}>
         {navItems.map((item) => (
-          <Flex aiCenter p="0 1rem" pointer key={item} m="1rem">
+          <Flex aic p="0 1rem" pointer key={item} m="1rem">
             <Link
               href={`/${item === "Home" ? "" : item.toLowerCase()}`}
               passHref
             >
-              <Text
-                as="a"
-                lf
-                pointer
-                color={theme.colors.gray9}
-                hvrColor={theme.colors.blackAlpha5}
-              >
+              <Text as="a" lf pointer color="gray9" hvrColor="blackAlpha5">
                 {item}
               </Text>
             </Link>

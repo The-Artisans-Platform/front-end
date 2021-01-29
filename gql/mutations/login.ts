@@ -1,6 +1,6 @@
 import { gql } from "apollo-boost";
 
-const LOGIN_MUTATION = gql`
+export const loginMutation = gql`
   mutation Login($data: LoginInput!) {
     login(data: $data) {
       id
@@ -9,5 +9,3 @@ const LOGIN_MUTATION = gql`
     }
   }
 `;
-
-export default LOGIN_MUTATION;

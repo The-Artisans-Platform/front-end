@@ -1,7 +1,6 @@
 import Link from "next/link";
-import React from "react";
-import Layout from "../components/Layout";
-import { Card, Text, theme } from "sriracha-ui";
+import Layout from "components/Layout";
+import { Card, Text } from "sriracha-ui";
 
 export default function Index() {
   return (
@@ -11,12 +10,7 @@ export default function Index() {
           Welcome to the Artisans Platform! 🎉
         </Text>
         <Link href="/about" passHref>
-          <Text
-            as="a"
-            color={theme.colors.deepPurple4}
-            pointer
-            hvrColor={theme.colors.deepPurple3}
-          >
+          <Text as="a" color="deepPurple4" pointer hvrColor="deepPurple3">
             About
           </Text>
         </Link>

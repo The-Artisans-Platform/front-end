@@ -1,6 +1,6 @@
 import { gql } from "apollo-boost";
 
-const ME_QUERY = gql`
+export const meQuery = gql`
   query {
     me {
       id
@@ -8,11 +8,7 @@ const ME_QUERY = gql`
       firstName
       lastName
       displayName
-      tzName
-      tzAbv
       artisan
     }
   }
 `;
-
-export default ME_QUERY;
