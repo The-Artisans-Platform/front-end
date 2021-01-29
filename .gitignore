@@ -1,6 +1,7 @@
 node_modules
 .next
 .elasticbeanstalk/
+ecosystem.config.js
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
